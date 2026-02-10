@@ -1,68 +1,73 @@
-# 🛍️ 패션 쇼핑몰 상품 목록 페이지 (Mobile)
+# React + TypeScript + Vite
 
-모바일 환경에 최적화된 패션 쇼핑몰 상품 목록 및 장바구니 기능 구현 프로젝트입니다.
-제공된 요구사항 명세서를 분석하여, 사용자 경험(UX)을 고려한 레이아웃과 기능을 구현했습니다.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-> **작성자:** 서경진
-> **개발 기간:** 2026.02.02 2026.02.
+Currently, two official plugins are available:
 
-<br/>
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🔗 배포 링크 (Deployment)
+## React Compiler
 
-// 미정
-**👉 데모 페이지 바로가기:** [여기에_Vercel_또는_배포_URL_입력]
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-<br/>
+## Expanding the ESLint configuration
 
-## 🛠️ 기술 스택 (Tech Stack)
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-- **Framework:** React 18 (19)
-- **Language:** JavaScript / TypeScript
-- **Styling:** CSS Modules / Styled-components / Tailwind CSS
-- **Deployment:** Vercel
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-<br/>
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-## 📱 주요 기능 (Key Features)
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-### 1. 모바일 최적화 레이아웃
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-- 375px 기준의 모바일 뷰포트에 최적화된 반응형 디자인
-- `max-width` 설정을 통한 중앙 정렬 컨테이너 구현
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-### 2. 상품 리스트 (Grid Layout)
-
-- CSS Grid를 활용한 **2열 상품 배치**
-- `aspect-ratio`와 `object-fit: cover`를 사용하여 이미지 비율 유지 및 강조
-
-### 3. 장바구니 인터랙션
-
-- **Sticky Header:** 스크롤 시에도 상단에 고정되어 접근성 확보
-- **상태 관리:** '담기' 버튼 클릭 시 즉각적인 카운트 업데이트 및 배지(Badge) 표시
-
-<br/>
-
-## 📂 문서 (Documentation)
-
-프로젝트 진행 시 작성한 요구사항 분석 및 체크리스트 문서는 `docs` 폴더에서 확인하실 수 있습니다.
-
-- [📄 요구사항 분석 및 기능 명세서](./docs/01.products_requirements.md)
-- [✅ 요구사항 체크리스트](./docs/01.products_requirements_checklist.md)
-
-<br/>
-
-## 🚀 실행 방법 (Getting Started)
-
-프로젝트를 로컬 환경에서 실행하려면 아래 명령어를 입력해주세요.
-
-```bash
-# 레포지토리 클론
-git clone [레포지토리 주소]
-
-# 패키지 설치
-npm install
-
-# 개발 서버 실행
-npm run dev
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
