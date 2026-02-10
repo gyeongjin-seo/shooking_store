@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Header } from "./components/Header";
 import { ProductList } from "./components/ProductList";
-import { Product } from "./components/ProductItem";
+import type { Product } from "./components/ProductItem";
 
 // Mock Data (임시 데이터)
 const MOCK_PRODUCTS: Product[] = [
