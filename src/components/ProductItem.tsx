@@ -1,38 +1,46 @@
-// 개별 상품 UI
+// src/components/ProductItem.tsx
 
-// 타입 정의
-export interface Product {
-  id: number;
-  brand: string;
-  name: string;
-  price: number;
-  image: string;
+// 타입 정의 (TypeScript 쓰시니까 필수)
+interface ProductProps {
+  product: {
+    id: number;
+    name: string;
+    brand: string;
+    price: number;
+    img: string;
+  };
 }
 
-//  "부모에게 무엇을 받을 것인가 ( Props 정의 "
-interface ProductItemProps {
-  product: Product;
-  onAddToCart: () => void; // 클릭 이벤트 핸들러
-}
-
-export default function ProductItem({
-  product,
-  onAddToCart,
-}: ProductItemProps) {
+export default function ProductItem({ product }: ProductProps) {
   return (
-    <div className="product-item">
-      <div className="image-wrapper">
-        <img src={product.image} alt={product.name} className="product-img" />
+    <div className="flex flex-col">
+      {/* 1. 이미지 영역 (비율 고정 및 꽉 차게) */}
+      <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-gray-100">
+        <img
+          src={product.img}
+          alt={product.name}
+          className="h-full w-full object-cover transition-transform hover:scale-105"
+        />
+        {/* 장바구니 아이콘을 이미지 위에 띄우고 싶다면 여기에 absolute로 배치 */}
       </div>
-      <div className="product-info">
-        <span className="brand-name">{product.brand}</span>
-        <h3 className="product-name">{product.name}</h3>
-        <span className="product-price">
+
+      {/* 2. 텍스트 정보 */}
+      <div className="mt-3 flex flex-col gap-1">
+        <span className="text-sm font-bold text-black">{product.brand}</span>
+        <span className="text-xs text-gray-500 line-clamp-1">
+          {product.name}
+        </span>
+        <span className="text-sm font-bold text-black">
           {product.price.toLocaleString()}원
         </span>
       </div>
-      <button className="add-btn" onClick={onAddToCart}>
-        닫기
+
+      {/* 3. 담기 버튼 (피그마의 검정 알약 버튼) */}
+      <button
+        onClick={() => alert("장바구니 담기!")} // 나중에 로직 연결
+        className="mt-2 w-fit rounded-full bg-black px-4 py-1.5 text-xs font-bold text-white transition active:scale-95"
+      >
+        담기
       </button>
     </div>
   );
