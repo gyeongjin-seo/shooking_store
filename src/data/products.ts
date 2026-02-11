@@ -1,0 +1,51 @@
+//데이터 구조
+export const products = [
+  {
+    id: 1,
+    brand: "브랜드A",
+    name: "편안하고 착용감이 좋은 신발",
+    price: 35000,
+    imgUrl: "/images/shoe1.png",
+    description: "편안하고 착용감이 좋은 신발",
+  },
+  {
+    id: 2,
+    brand: "브랜드A",
+    name: "힙한 컬러가 매력적인 신발",
+    price: 25000,
+    imgUrl: "/images/shoe2.png",
+    description: "힙한 컬러가 매력적인 신발",
+  },
+  {
+    id: 3,
+    brand: "브랜드B",
+    name: "편안하고 착용감이 좋은 신발",
+    price: 35000,
+    imgUrl: "/images/shoe3.png",
+    description: "편안하고 착용감이 좋은 신발",
+  },
+  {
+    id: 4,
+    brand: "브랜드B",
+    name: "힙한 컬러가 매력적인 신발",
+    price: 35000,
+    imgUrl: "/images/shoe4.png",
+    description: "힙한 컬러가 매력적인 신발",
+  },
+  {
+    id: 5,
+    brand: "브랜드C",
+    name: "편안하고 착용감이 좋은 신발",
+    price: 35000,
+    imgUrl: "/images/shoe5.png",
+    description: "편안하고 착용감이 좋은 신발",
+  },
+  {
+    id: 6,
+    brand: "브랜드C",
+    name: "힙한 컬러가 매력적인 신발",
+    price: 35000,
+    imgUrl: "/images/shoe6.png",
+    description: "힙한 컬러가 매력적인 신발",
+  },
+];
