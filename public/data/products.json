@@ -28,7 +28,7 @@
     "brand": "브랜드A",
     "name": "힙한 컬러가 매력적인 신발",
     "price": 25000,
-    "imgUrl": "/images/shoe2.png",
+    "imgUrl": "/images/shoe4.png",
     "description": "힙한 컬러가 매력적인 신발"
   },
   {
@@ -36,7 +36,7 @@
     "brand": "브랜드A",
     "name": "힙한 컬러가 매력적인 신발",
     "price": 25000,
-    "imgUrl": "/images/shoe2.png",
+    "imgUrl": "/images/shoe5.png",
     "description": "힙한 컬러가 매력적인 신발"
   },
   {
@@ -44,7 +44,7 @@
     "brand": "브랜드A",
     "name": "힙한 컬러가 매력적인 신발",
     "price": 25000,
-    "imgUrl": "/images/shoe2.png",
+    "imgUrl": "/images/shoe6.png",
     "description": "힙한 컬러가 매력적인 신발"
   }
 ]
